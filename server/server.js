@@ -12,7 +12,19 @@ app.get('/', function(req, res) {
 
 app.post('/usuarios', function(req, res) {
     let body = req.body;
-    res.json({ body });
+
+    if (body.nombre === undefined) {
+        res.status(400).json({
+            ok: false,
+            mensaje: 'El nombre es necesario'
+        });
+    } else {
+
+        res.json({
+            personas: body
+        });
+    }
+
 })
 
 app.put('/usuarios/:id', function(req, res) {
