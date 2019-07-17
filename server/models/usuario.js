@@ -10,6 +10,7 @@ let attb = (type, name) => {
     }
 }
 
+//Objeto para validar los roles del usuario
 let rolesValidos = {
     values: ['ADMIN', 'EMPLEADO'],
     message: '{VALUE} no es un rol valido'
@@ -43,6 +44,7 @@ let usuarioSchema = new Schema({
     }
 });
 
+//Elimina la contraseña del objeto de respuesta
 usuarioSchema.methods.toJSON = function() {
     let user = this;
     let userObject = user.toObject();
